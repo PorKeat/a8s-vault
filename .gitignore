@@ -1,0 +1,12 @@
+# Vault runtime data
+data/
+
+# Vault raft storage
+data/raft/
+data/vault.db
+
+# Optional logs
+*.log
+
+# Environment variables
+.env

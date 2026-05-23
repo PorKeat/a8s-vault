@@ -1,0 +1,19 @@
+services:
+  vault:
+    image: hashicorp/vault:latest
+    restart: always
+    container_name: vault
+    network_mode: host       
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - VAULT_API_ADDR=https://vault.devith.it.com
+      - VAULT_UI=true
+    volumes:
+      - ./config:/vault/config
+      - ./data:/vault/data
+    entrypoint: vault
+    command: server -config=/vault/config/vault.hcl
+
+volumes:
+  vault_data:
